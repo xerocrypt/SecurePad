@@ -400,6 +400,7 @@ void HexStr2CharStr(const char* pszHexStr, unsigned char* pucCharStr, unsigned l
     }
 }
 
+// I have modified the following to use the cipher in CFB mode instead of the insecure ECB. (Michael).
 void StrCrypt(unsigned char *buf1, unsigned long buf1len, unsigned char *buf2, unsigned long buf2len, unsigned char *key, CryptAction action)
 {
     CBlowFish *BlowFish = new CBlowFish(key, strlen((char*)key));
