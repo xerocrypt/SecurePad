@@ -406,14 +406,14 @@ void StrCrypt(unsigned char *buf1, unsigned long buf1len, unsigned char *buf2, u
 
     if(action == Encrypt)
     {
-        BlowFish->Encrypt(buf1, buf1, buf1len, CBlowFish::ECB);
+        BlowFish->Encrypt(buf1, buf1, buf1len, CBlowFish::CFB);
         CharStr2HexStr(buf1, (char*)buf2, buf1len);
     }
 
     else if(action == Decrypt)
     {
         HexStr2CharStr((char*)buf1, buf2, buf2len/2);
-        BlowFish->Decrypt(buf2, buf2, buf2len, CBlowFish::ECB);
+        BlowFish->Decrypt(buf2, buf2, buf2len, CBlowFish::CFB);
     }
 
     delete BlowFish;
